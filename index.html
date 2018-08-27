@@ -10,7 +10,9 @@
 
         <form>
             <label>What kind of Jackson 5 related gif do you want?</label>
-            <input name="tag" type="text"/>
+            <input name="tag" type="text" v-model="tagValue"/>
+            
+    
             <!--
                 TODO
                 Use some Vue.js magic to keep the input above in sync
@@ -21,6 +23,7 @@
                 value="Get my Gif!"
                 @click.prevent="fetchGif"
             />
+
             <!--
                 @click.prevent is a shorthand for saying
                 "add a click event listener, and prevent default"
@@ -29,6 +32,9 @@
         </form>
 
         <img id="gif" v-bind:src="imgSrc" v-if="imgSrc"/>
+        <p id="loading" v-if="loading">
+            {{ loading }}
+        </p>
         <!-- TODO show the user a "Loading..." message if we're currently loading -->
         <p id="feedback" v-if="errorMessage">
             {{ errorMessage }}
