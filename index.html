@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>The AJAXson 5</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
 </head>
 <body>
@@ -11,16 +13,24 @@
         <form>
             <label>What kind of Jackson 5 related gif do you want?</label>
             <input name="tag" id="userInput" type="text" v-model="tagValue"/>
-            
-    
+            <br><br>
+
+            <label>Prove you are not a robot by answering this riddle:</label>
+            <br>
+
+            <input name="riddle" id="riddleQ" type="text" />
+            <b>Jacksons are better than 1.</b>
+           
             <!--
                 TODO
                 Use some Vue.js magic to keep the input above in sync
                 with tagValue over in request-gif.js
             -->
+            <br><br>
             <input
                 type="submit"
                 value="Get my Gif!"
+                
                 @click.prevent="fetchGif(searchQuery)"
             />
 
@@ -29,13 +39,21 @@
                 "add a click event listener, and prevent default"
                 It's a Vue.js thing, not something built into JS or HTML
             -->
+            
+
+            
+                
         </form>
 
        
-        <p id="loading" v-if="loading">
+        <p id="loading" v-if="loading" >
             Loading ...
         </p>
+        <p id="riddle" v-if="riddle" style="color:red" >
+            No Gifs For You!
+        </p>  
         <img id="gif" v-bind:src="imgSrc" v-else-if="imgSrc"/>
+              
         <!-- TODO show the user a "Loading..." message if we're currently loading -->
         <p id="feedback" v-if="errorMessage">
             {{ errorMessage }}
