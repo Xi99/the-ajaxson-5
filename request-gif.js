@@ -20,7 +20,10 @@ var ajaxson5 = new Vue({
             var value = searchQuery.value;
             // configure a few parameters to attach to our request
             var api_key = "dc6zaTOxFJmzC";
+            
             var tag = "jackson+5+" + value; // TODO should be e.g. "jackson 5 dance"
+            
+            
             this.loading = true;
            
             var getRiddle = document.getElementById("riddleQ");
@@ -38,11 +41,15 @@ var ajaxson5 = new Vue({
                         
                         console.log("we received a response!");
                         console.log(results);
-        
+                        
+                       
+
+                        setTimeout(() => {
+                            
                         this.imgSrc = results.data.image_url
                         this.loading = false;
                         this.riddle = false;
-                        
+                        }, 900);
                         
                     })
                     

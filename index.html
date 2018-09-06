@@ -3,7 +3,7 @@
 <head>
     <title>The AJAXson 5</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -49,14 +49,14 @@
         </form>
 
        
-        <p id="loading" v-if="loading" >
-            Loading ...
-        </p>
         <p id="riddle" v-if="riddle" style="color:red" >
-            No Gifs For You!
-        </p>  
-        <br>
-        <img id="gif" v-bind:src="imgSrc" v-else-if="imgSrc"/>
+                No Gifs For You!
+        </p> 
+
+        <img src="/home/sean/lc101/AJAXson5/the-ajaxson-5/Images/michael-spinner.png" id="loading" v-if="loading" class="img-responsive spin">
+            
+        
+        <img id="gif" class="img-responsive" v-bind:src="imgSrc" v-else-if="imgSrc"/>
               
         <!-- TODO show the user a "Loading..." message if we're currently loading -->
         <p id="feedback" v-if="errorMessage">
